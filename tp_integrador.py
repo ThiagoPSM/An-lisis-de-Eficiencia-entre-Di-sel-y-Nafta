@@ -18,6 +18,7 @@ df = df.drop([2]) # Eliminar valor atípico
 
 rows = len(df.Car_ID)
 
+# Gráfico de caja (Figura 1)
 box = df.boxplot('Mileage', by='Fuel_Type')
 
 box.set_title("")
@@ -42,6 +43,7 @@ for i in range(rows):
 
 print(df.groupby('Fuel_Type')['Engine'].describe())
 
+# Gráfico de dispersión (Figura 2)
 fig, ax = plt.subplots()
 #ax.scatter(df.Engine, df.Mileage)
 scatter_diesel = ax.scatter(diesel[0], diesel[1], label='Diesel', color='tab:blue')
@@ -53,11 +55,13 @@ plt.xlabel('Centímetros cúbicos (cc)')
 plt.ylabel('Eficiencia (km/l)')
 plt.show()
 
+# Gráfico de dispersión (no utilizado)
 plt.scatter(diesel[0], diesel[1])
 plt.title('Diesel')
 plt.xlabel('Centímetros cúbicos (cc)')
 plt.ylabel('Eficiencia (km/l)')
 
+# Gráfico de dispersión (no utilizado)
 plt.scatter(nafta[0], nafta[1])
 plt.title('Nafta')
 plt.xlabel('Centímetros cúbicos (cc)')
@@ -101,7 +105,7 @@ nafta_means = [años_n[year] if year in años_n else 0 for year in years]
 bar_width = 0.4
 index = range(len(years))
 
-# Crear el gráfico de barras
+# Gráfico de barras (Figura 3)
 fig, ax = plt.subplots()
 
 bar_diesel = ax.bar([p - bar_width/2 for p in index], diesel_means, width=bar_width, label='Diesel', color='tab:blue')
